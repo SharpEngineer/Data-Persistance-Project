@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -70,6 +71,9 @@ public class MainManager : MonoBehaviour
 
     public void GameOver()
     {
+        GameManager.Instance.score = m_Points;
+        GameManager.Instance.UpdateScores();
+        GameManager.Instance.SaveScores();
         m_GameOver = true;
         GameOverText.SetActive(true);
     }
